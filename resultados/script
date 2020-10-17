@@ -1,0 +1,7 @@
+set title "Desempenho Insertion Sort"
+set xlabel "Tamanhos"
+set ylabel "Microssegundos"
+set grid
+set style line 1 lc rgb '#8b1a0e' pt 1 ps 1 lt 1 lw 2 # --- red
+set style line 2 lc rgb '#5e9c36' pt 6 ps 1 lt 1 lw 2 # --- green
+plot "resultadoInsertionRec.txt" with lines linestyle 2, "resultadoInsertionIt.txt" with lines linestyle 1

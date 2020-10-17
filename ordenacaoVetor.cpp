@@ -21,6 +21,19 @@ void Ordena::selectionSort(int n, int A[]){
     }
 }
 
+void Ordena::selectionSortRecursivo(int A[], int p, int r){
+    if(p <= r){
+        int min = p;
+        for(int j = p + 1; j <= r; j++){
+            if(A[j] < A[min]){
+                min = j;
+            }
+        }
+        swap(A[p], A[min]);
+        selectionSortRecursivo(A,p+1,r);
+    }
+}
+
 /*
 Recebe um vetor e seu tamanho e ordena iteraticamente o vetor em ordem crescente
 usando algoritmo InserctionSort
@@ -38,6 +51,20 @@ void Ordena::inserctionSort(int n, int A[]){
        }
        A[i+1] = key;
    }
+}
+
+void Ordena::inserctionSortRecursivo(int A[], int p, int r){
+    if(p <= r){
+        int i;
+        int key = A[p];
+        i = p-1;
+        while(i >= 0 && A[i] > key){
+            A[i+1] = A[i];
+            i--;
+        }
+        A[i+1] = key;
+        inserctionSortRecursivo(A,p+1,r);
+    }
 }
 
 void Ordena::intercala(int *A, int p, int q, int r){
@@ -102,7 +129,6 @@ int Ordena::separa(int A[], int p, int r){
     A[j] = c;
     return j;
 }
-
 void Ordena::quickSort(int A[], int p, int r){
     if(p < r){
         int i = separa(A, p, r);
