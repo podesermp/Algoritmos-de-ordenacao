@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ordenacaoVetor.h"
-
 using namespace std;
+//Marcos Paulo Rocha Rodrigues - 403581
 
 /*
 Recebe um vetor e seu tamanho e ordena iteraticamente o vetor em ordem crescente
@@ -20,7 +20,11 @@ void Ordena::selectionSort(int n, int A[]){
         swap(A[i], A[min]);
     }
 }
-
+/*
+Recebe um vetor(A) com A[p...r] e ordena o vetor recursivamente
+Recebe: um vetor de inteiros, o indice do primeiro elemento do vetor e o indice do ultimo elemento do vetor
+Retorna: não há um retorno mas o vetor A[] é ordenado crescentemente
+*/
 void Ordena::selectionSortRecursivo(int A[], int p, int r){
     if(p <= r){
         int min = p;
@@ -35,10 +39,10 @@ void Ordena::selectionSortRecursivo(int A[], int p, int r){
 }
 
 /*
-Recebe um vetor e seu tamanho e ordena iteraticamente o vetor em ordem crescente
+Recebe um vetor(A) e seu tamanho(n) e ordena iteraticamente o vetor em ordem crescente
 usando algoritmo InserctionSort
 Recebe: tamanho do vetor e os elementos do vetor
-Retorna: não há retorno mas o vetor está ordenado
+Retorna: não há retorno mas o vetor está ordenado crescentemente
 */
 void Ordena::inserctionSort(int n, int A[]){
    int i, j, key;
@@ -52,7 +56,11 @@ void Ordena::inserctionSort(int n, int A[]){
        A[i+1] = key;
    }
 }
-
+/*
+Recebe um vetor(A) com A[p...r] e ordena o vetor recursivamente
+Recebe: um vetor de inteiros, o indice do primeiro elemento do vetor e o indice do ultimo elemento do vetor
+Retorna: não há um retorno mas o vetor A[] é ordenado crescentemente
+*/
 void Ordena::inserctionSortRecursivo(int A[], int p, int r){
     if(p <= r){
         int i;
@@ -90,29 +98,17 @@ void Ordena::intercala(int *A, int p, int q, int r){
     }
     delete[] W;
 }
+/*
+Recebe um vetor(A) com A[p,...,r] e retorna o vetor ordenado recursivamente
+Recebe: um vetor de inteiros, o indice do primeiro elemento e o indice do ultimo elemento do vetor
+Retorna: não retorna nada mas o vetor A[] é ordenado crescentemente
+*/
 void Ordena::mergeSort(int A[], int p, int r){
     if(p < r){
         int q = (p+r)/2;
         mergeSort(A,p,q);
         mergeSort(A,q+1,r);
         intercala(A,p,q,r);
-    }
-}
-
-
-void Ordena::mergeSortIterativo(int n, int A[]){
-    int r, p, b = 1;
-    while(b < n){
-        p = 0; 
-        while(p+b<n){
-            r = p+2*b;
-            if(r>n){
-                r=n;
-            }
-            intercala(A,p,p+b,r);
-            p=p+2*b;
-        }
-        b = 2*b;
     }
 }
 
@@ -129,6 +125,11 @@ int Ordena::separa(int A[], int p, int r){
     A[j] = c;
     return j;
 }
+/*
+Recebe um vetor(A) com A[p,...,r] e retorna o vetor ordenado recursivamente
+Recebe: um vetor de inteiros, o indice do primeiro elemento e o indice do ultimo elemento do vetor
+Retorna: não retorna nada mas o vetor A[] é ordenado crescentemente
+*/
 void Ordena::quickSort(int A[], int p, int r){
     if(p < r){
         int i = separa(A, p, r);

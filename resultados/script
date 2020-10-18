@@ -1,7 +1,9 @@
-set title "Desempenho Insertion Sort"
+set title "Comparação de desempenho dos algoritmos iterativos"
 set xlabel "Tamanhos"
 set ylabel "Microssegundos"
 set grid
 set style line 1 lc rgb '#8b1a0e' pt 1 ps 1 lt 1 lw 2 # --- red
 set style line 2 lc rgb '#5e9c36' pt 6 ps 1 lt 1 lw 2 # --- green
-plot "resultadoInsertionRec.txt" with lines linestyle 2, "resultadoInsertionIt.txt" with lines linestyle 1
+set style line 3 lc rgb '#440154' pt 6 ps 1 lt 1 lw 2 # --- dark purple
+set style line 4 lc rgb '#b5367a' pt 6 ps 1 lt 1 lw 2 # --- magenta
+plot "resultadoInsertionIt.txt" with lines linestyle 1, "resultadoSelectionIt.txt" with lines linestyle 2
